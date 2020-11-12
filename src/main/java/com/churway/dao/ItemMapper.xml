@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.churway.dao.ItemMapper">
+  <resultMap id="BaseResultMap" type="com.churway.entity.Item">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="survive_time" jdbcType="INTEGER" property="surviveTime" />
+    <result column="start_price" jdbcType="DECIMAL" property="startPrice" />
+    <result column="min_delta_price" jdbcType="DECIMAL" property="minDeltaPrice" />
+    <result column="current_price" jdbcType="DECIMAL" property="currentPrice" />
+    <result column="buyer_id" jdbcType="BIGINT" property="buyerId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+</mapper>

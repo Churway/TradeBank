@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f85a6504-15f0-4a5e-8f15-522a79756b56" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\develop\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jivzQ8d8FFHPDWweZim0jXqDJm" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.Start">
+    <configuration name="AutoCoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.churway.utils.AutoCoder" />
+      <module name="churway-app-tradebank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.churway.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Start" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="churway-app-tradebank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.churway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.churway.Start" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Start" />
+        <item itemvalue="Application.AutoCoder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f85a6504-15f0-4a5e-8f15-522a79756b56" name="Default Changelist" comment="" />
+      <created>1604299989007</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604299989007</updated>
+      <workItem from="1604299993818" duration="59000" />
+      <workItem from="1604482449090" duration="8000" />
+      <workItem from="1604574704133" duration="88000" />
+      <workItem from="1605153255903" duration="185000" />
+      <workItem from="1605153536313" duration="2248000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1604574786081">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604574786081" />
+    <state x="641" y="292" key="Github.ShareDialog" timestamp="1605162844038">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="641" y="292" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1605162844038" />
+    <state width="1556" height="317" key="GridCell.Tab.0.bottom" timestamp="1605162537964">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
+    <state width="1556" height="317" key="GridCell.Tab.0.center" timestamp="1605162537964">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
+    <state width="1556" height="317" key="GridCell.Tab.0.left" timestamp="1605162537964">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
+    <state width="1556" height="317" key="GridCell.Tab.0.right" timestamp="1605162537964">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
+    <state width="1556" height="317" key="GridCell.Tab.1.bottom" timestamp="1605162537965">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605162537965" />
+    <state width="1556" height="317" key="GridCell.Tab.1.center" timestamp="1605162537965">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1605162537965" />
+    <state width="1556" height="317" key="GridCell.Tab.1.left" timestamp="1605162537964">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
+    <state width="1556" height="317" key="GridCell.Tab.1.right" timestamp="1605162537965">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="317" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1605162537965" />
+  </component>
+</project>
