@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JwtUtils {
-	private static final String SECRET = "abc123!@#";
+	private static final String SECRET = "!@#123abcxyz";
 	private static final String EXP = "exp";
 	private static final String PAYLOAD = "payload";
 

@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.churway.entity.Type;
 import com.churway.dao.TypeMapper;
 
+import java.util.List;
+
 @Transactional
 @Service
 public class TypeService {
@@ -16,4 +18,7 @@ public class TypeService {
 		return typeMapper;
 	}
 
+    public List<Type> listType() {
+		return typeMapper.selectAll();
+    }
 }

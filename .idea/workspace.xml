@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f85a6504-15f0-4a5e-8f15-522a79756b56" name="Default Changelist" comment="" />
+    <list default="true" id="f85a6504-15f0-4a5e-8f15-522a79756b56" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/churway/config/InterceptorConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/churway/interceptor/MyInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/churway/model/GoodsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/churway/model/SysUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/igoods.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/ijoin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/mygoods.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/myroom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/scan.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/set.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/churway/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/churway/controller/GoodsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/churway/controller/TypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/churway/controller/TypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/churway/entity/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/churway/entity/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/churway/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/churway/service/GoodsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/churway/service/ImgService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/churway/service/ImgService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/churway/service/TypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/churway/service/TypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/churway/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/churway/utils/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/moon/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/moon/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tradebank/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tradebank/one.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/one.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tradebank/two.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/two.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tradebank/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tradebank/welcome.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +38,16 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -24,16 +63,33 @@
     </option>
   </component>
   <component name="ProjectId" id="1jivzQ8d8FFHPDWweZim0jXqDJm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static" />
     <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.churway.model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\develop\workspace\churway-app-tradebank\src\main\resources\static" />
+      <recent name="D:\develop\workspace\churway-app-tradebank\src\main\resources\templates\tradebank" />
+    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Start">
     <configuration name="AutoCoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -83,7 +139,8 @@
       <workItem from="1604482449090" duration="8000" />
       <workItem from="1604574704133" duration="88000" />
       <workItem from="1605153255903" duration="185000" />
-      <workItem from="1605153536313" duration="2248000" />
+      <workItem from="1605153536313" duration="4654000" />
+      <workItem from="1605165277825" duration="27527000" />
     </task>
     <servers />
   </component>
@@ -91,45 +148,69 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1604574786081">
+    <state x="605" y="134" key="#com.intellij.ide.util.MemberChooser" timestamp="1605229916358">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604574786081" />
-    <state x="641" y="292" key="Github.ShareDialog" timestamp="1605162844038">
+    <state x="605" y="134" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1605229916358" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1605165680055">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="641" y="292" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1605162844038" />
-    <state width="1556" height="317" key="GridCell.Tab.0.bottom" timestamp="1605162537964">
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1605165680055" />
+    <state x="641" y="292" key="Github.ShareDialog" timestamp="1605162948601">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
-    <state width="1556" height="317" key="GridCell.Tab.0.center" timestamp="1605162537964">
+    <state x="641" y="292" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1605162948601" />
+    <state x="456" y="126" key="Github.UntrackedFilesDialog" timestamp="1605162961816">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
-    <state width="1556" height="317" key="GridCell.Tab.0.left" timestamp="1605162537964">
+    <state x="456" y="126" key="Github.UntrackedFilesDialog/0.0.1600.860@0.0.1600.860" timestamp="1605162961816" />
+    <state width="1556" height="431" key="GridCell.Tab.0.bottom" timestamp="1605236771596">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
-    <state width="1556" height="317" key="GridCell.Tab.0.right" timestamp="1605162537964">
+    <state width="1556" height="431" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605236771596" />
+    <state width="1556" height="431" key="GridCell.Tab.0.center" timestamp="1605236771595">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
-    <state width="1556" height="317" key="GridCell.Tab.1.bottom" timestamp="1605162537965">
+    <state width="1556" height="431" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1605236771595" />
+    <state width="1556" height="431" key="GridCell.Tab.0.left" timestamp="1605236771595">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605162537965" />
-    <state width="1556" height="317" key="GridCell.Tab.1.center" timestamp="1605162537965">
+    <state width="1556" height="431" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1605236771595" />
+    <state width="1556" height="431" key="GridCell.Tab.0.right" timestamp="1605236771595">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1605162537965" />
-    <state width="1556" height="317" key="GridCell.Tab.1.left" timestamp="1605162537964">
+    <state width="1556" height="431" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1605236771595" />
+    <state width="1556" height="431" key="GridCell.Tab.1.bottom" timestamp="1605236771597">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1605162537964" />
-    <state width="1556" height="317" key="GridCell.Tab.1.right" timestamp="1605162537965">
+    <state width="1556" height="431" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605236771597" />
+    <state width="1556" height="431" key="GridCell.Tab.1.center" timestamp="1605236771596">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="317" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1605162537965" />
+    <state width="1556" height="431" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1605236771596" />
+    <state width="1556" height="431" key="GridCell.Tab.1.left" timestamp="1605236771596">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="431" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1605236771596" />
+    <state width="1556" height="431" key="GridCell.Tab.1.right" timestamp="1605236771597">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="431" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1605236771597" />
+    <state width="1556" height="431" key="GridCell.Tab.2.bottom" timestamp="1605236771598">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="431" key="GridCell.Tab.2.bottom/0.0.1600.860@0.0.1600.860" timestamp="1605236771598" />
+    <state width="1556" height="431" key="GridCell.Tab.2.center" timestamp="1605236771597">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="431" key="GridCell.Tab.2.center/0.0.1600.860@0.0.1600.860" timestamp="1605236771597" />
+    <state width="1556" height="431" key="GridCell.Tab.2.left" timestamp="1605236771597">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="431" key="GridCell.Tab.2.left/0.0.1600.860@0.0.1600.860" timestamp="1605236771597" />
+    <state width="1556" height="431" key="GridCell.Tab.2.right" timestamp="1605236771598">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="431" key="GridCell.Tab.2.right/0.0.1600.860@0.0.1600.860" timestamp="1605236771598" />
   </component>
 </project>

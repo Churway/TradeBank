@@ -1,8 +1,10 @@
 package com.churway.entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
 
 public class Goods implements Serializable {
     @Id
@@ -156,5 +158,20 @@ public class Goods implements Serializable {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", typeId=" + typeId +
+                ", mainImg='" + mainImg + '\'' +
+                ", ownerId=" + ownerId +
+                ", ownerName='" + ownerName + '\'' +
+                ", state=" + state +
+                ", createTime=" + createTime +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

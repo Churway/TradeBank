@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>MOON</title>
+    <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}"/>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput-rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/themes/explorer/theme.css" rel="stylesheet">
+</head>
+<body class="bg-c">
+<div class="container-fluid" id="app">
+    <div class="row">
+        <div class="col rainbow text-white shadow">添 加 商 品</div>
+    </div>
+    <div style="width: 80%" class="mb-2">
+        <form id="goods" enctype="multipart/form-data">
+            <span>Name: </span><input class="form-control mt-2 mb-2" type="text" name="name">
+            <span>Description: </span><textarea class="form-control mt-2 mb-2" style="height: 250px"
+                                                name="description"></textarea>
+            <div style="width: 40%">
+                <span>Picture: </span><input id="file" class=" mt-2 mb-2 " type="file" name="mainImage" multiple>
+            </div>
+            <div style="width: 20%">
+                <span>Type: </span>
+                <select class="form-control m-2" name="typeId">
+                    <option v-for="t in types" :value="t.id">{{t.name}}</option>
+                </select>
+                <button type="button" class="m-2 btn btn-outline-dark form-control" onclick="addGoods()">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- js -->
+<script th:src="@{/moon/js/jquery.js}"></script>
+<script th:src="@{/moon/js/vue.js}"></script>
+<script th:src="@{/layer/layer.js}"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/js/fileinput.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/js/locales/zh.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/js/plugins/sortable.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/themes/explorer/theme.min.js"></script>
+<script th:inline="javascript">
+    //vue
+    var vueApp = new Vue({
+        el: '#app',
+        data: {
+            types: [],
+        },
+        methods: {
+            getTypes: function () {
+                $.post("/churway/Type/getTypes", {}, function (data) {
+                    vueApp.types = data
+                }, "json")
+            },
+        },
+        mounted: function () {
+            this.getTypes()
+        }
+    })
+    //fileinput
+    $("#file").fileinput({
+        theme: "fas",                                   //主题
+        uploadUrl: "#", // 文件上传路径
+        showUpload: false,
+        showClose: false, //隐藏右上角叉
+        allowedFileExtensions: ['jpg', 'png', 'gif'],                  //允许上传的文件拓展名，数组，如果设置为png，那么jpg就不能上传
+        minFileSize: 0,                           	  //上传文件的最小size，如果为0，则不限制
+        maxFileSize: 25600,                               //上传文件的最大size
+        maxFilePreviewSize: 25600, // 25 MB           //支持预览文件的最大size
+        minFileCount: 1,                              //最小文件上传数量
+        maxFileCount: 9,                              //最大文件上传数量
+        layoutTemplates: {
+            actionDelete: '<button type="button" class="kv-file-remove {removeClass}" title="{removeTitle}" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i></button>',//去除上传预览的缩列图中的删除图标
+            actionUpload: '',//去除上传预览的缩列图中的上传图标
+            actionZoom: '',//去除上传预览的缩列图中的预览图标
+        },
+    });
+
+    function addGoods() {
+        var data = new FormData($('#goods')[0])
+        var imgs = $('#file')[0].files
+        data.append("imgs", imgs[0])
+        data.append("imgs",imgs[1])
+        $.ajax({
+            url: "/churway/Goods/add",
+            type: "POST",
+            data: data,
+            processData: false,   //  告诉jquery不要处理发送的数据
+            contentType: false,   // 告诉jquery不要设置content-Type请求头
+            success: function (data) {
+                alert(data)
+                location.reload()
+            },
+            error: function (data) {
+                console.log("error")
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
