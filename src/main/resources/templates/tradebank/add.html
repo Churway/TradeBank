@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>MOON</title>
+    <title>Trade Bank</title>
     <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}"/>
     <link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}"/>
     <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-fileinput/5.1.3/css/fileinput-rtl.min.css" rel="stylesheet">
@@ -14,15 +14,15 @@
     <div class="row">
         <div class="col rainbow text-white shadow">添 加 商 品</div>
     </div>
-    <div style="width: 80%" class="mb-2">
+    <div class="mt-2">
         <form id="goods" enctype="multipart/form-data">
-            <span>Name: </span><input class="form-control mt-2 mb-2" type="text" name="name">
-            <span>Description: </span><textarea class="form-control mt-2 mb-2" style="height: 250px"
+            <span>Name: </span><input class="form-control mt-2 mb-2 w-25" type="text" name="name">
+            <span>Description: </span><textarea class="form-control mt-2 mb-2 w-50" style="height: 250px"
                                                 name="description"></textarea>
-            <div style="width: 40%">
+            <div style="width: 25%">
                 <span>Picture: </span><input id="file" class=" mt-2 mb-2 " type="file" name="mainImage" multiple>
             </div>
-            <div style="width: 20%">
+            <div style="width: 12.5%">
                 <span>Type: </span>
                 <select class="form-control m-2" name="typeId">
                     <option v-for="t in types" :value="t.id">{{t.name}}</option>
@@ -80,8 +80,9 @@
     function addGoods() {
         var data = new FormData($('#goods')[0])
         var imgs = $('#file')[0].files
-        data.append("imgs", imgs[0])
-        data.append("imgs",imgs[1])
+        for (let e of imgs){
+            data.append("imgs", e)
+        }
         $.ajax({
             url: "/churway/Goods/add",
             type: "POST",

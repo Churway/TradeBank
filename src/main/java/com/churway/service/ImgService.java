@@ -22,7 +22,7 @@ public class ImgService {
         pathList.forEach(p -> {
             Img img = new Img();
             img.setPath(p);
-            img.setId(id);
+            img.setGoodsId(id);
             imgMapper.insert(img);
         });
     }

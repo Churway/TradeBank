@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Trade Bank</title>
+<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+</head>
+<body class="bg-c">
+	<div class="container-fluid" id="app">
+		<div class="row">
+			<div class="col text-center rainbow text-white shadow">设 置 拍 卖</div>
+		</div>
+		<div>
+			<div class="mt-2">
+				<form id="setItem" method="post" action="">
+					<span>Name: </span><input class="form-control mt-2 mb-2 w-25" type="text" name="name">
+					<span>CreateDate: </span><input class="form-control mt-2 mb-2 w-25" type="text" name="createTime">
+					<button type="submit" class="m-2 btn btn-outline-dark form-control">Add</button>
+<!--					<button type="button" class="m-2 btn btn-outline-dark form-control" onclick="addItem()">Add</button>-->
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- js -->
+	<script th:src="@{/moon/js/jquery.js}"></script>
+	<script th:src="@{/moon/js/vue.js}"></script>
+	<script th:src="@{/layer/layer.js}"></script>
+	<script th:inline="javascript">
+		//
+		function addItem() {
+
+		}
+	</script>
+</body>
+</html>

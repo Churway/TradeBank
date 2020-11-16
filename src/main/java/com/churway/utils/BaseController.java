@@ -1,5 +1,16 @@
 package com.churway.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.churway.model.SysUser;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.beans.PropertyEditorSupport;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,15 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
-import javax.servlet.ServletContext;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 
 public class BaseController {
 	// 自动绑定日期字段
@@ -173,6 +175,12 @@ public class BaseController {
 		} catch (Exception e) {
 			return new ArrayList<T>();
 		}
+	}
+
+	//从cookie中etoken转换为SysUser
+	public SysUser getUser(HttpServletRequest request){
+		String token = getCookieVal(request, "token");
+		return JwtUtils.getObject(token, SysUser.class);
 	}
 }
 

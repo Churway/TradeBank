@@ -15,4 +15,15 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="description" jdbcType="LONGVARCHAR" property="description" />
   </resultMap>
+  <select id="selectByCreateDate" resultMap="BaseResultMap">
+    select g.id,g.name,g.type_id,g.main_img,g.owner_id,g.owner_name,g.state,g.create_time,g.description
+    from goods g
+    where g.owner_id = #{ownerId}
+    <if test="startDate != null">
+      and g.create_time >= #{startDate}
+    </if>
+    <if test="endDate != null">
+      and g.create_time  &lt;= #{endDate}
+    </if>
+  </select>
 </mapper>
