@@ -1,19 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.churway.dao.ItemMapper">
-  <resultMap id="BaseResultMap" type="com.churway.entity.Item">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
-    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
-    <result column="survive_time" jdbcType="INTEGER" property="surviveTime" />
-    <result column="start_price" jdbcType="DECIMAL" property="startPrice" />
-    <result column="min_delta_price" jdbcType="DECIMAL" property="minDeltaPrice" />
-    <result column="current_price" jdbcType="DECIMAL" property="currentPrice" />
-    <result column="buyer_id" jdbcType="BIGINT" property="buyerId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="state" jdbcType="INTEGER" property="state" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.churway.entity.Item">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="goods_id" jdbcType="BIGINT" property="goodsId"/>
+        <result column="start_date" jdbcType="TIMESTAMP" property="startDate"/>
+        <result column="end_date" jdbcType="TIMESTAMP" property="endDate"/>
+        <result column="survive_time" jdbcType="INTEGER" property="surviveTime"/>
+        <result column="start_price" jdbcType="DECIMAL" property="startPrice"/>
+        <result column="min_delta_price" jdbcType="DECIMAL" property="minDeltaPrice"/>
+        <result column="current_price" jdbcType="DECIMAL" property="currentPrice"/>
+        <result column="seller_id" jdbcType="BIGINT" property="sellerId"/>
+        <result column="buyer_id" jdbcType="BIGINT" property="buyerId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+    </resultMap>
+    <resultMap id="ItemDtoMap" type="com.churway.model.ItemDto">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="goods_id" jdbcType="BIGINT" property="goodsId"/>
+        <result column="start_date" jdbcType="TIMESTAMP" property="startDate"/>
+        <result column="end_date" jdbcType="TIMESTAMP" property="endDate"/>
+        <result column="survive_time" jdbcType="INTEGER" property="surviveTime"/>
+        <result column="start_price" jdbcType="DECIMAL" property="startPrice"/>
+        <result column="min_delta_price" jdbcType="DECIMAL" property="minDeltaPrice"/>
+        <result column="current_price" jdbcType="DECIMAL" property="currentPrice"/>
+        <result column="seller_id" jdbcType="BIGINT" property="sellerId"/>
+        <result column="buyer_id" jdbcType="BIGINT" property="buyerId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <association property="goods" javaType="com.churway.entity.Goods">
+            <result column="goods_id" property="id"></result>
+            <result column="name" jdbcType="VARCHAR" property="name"/>
+            <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+            <result column="main_img" jdbcType="VARCHAR" property="mainImg"/>
+            <result column="owner_id" jdbcType="BIGINT" property="ownerId"/>
+            <result column="owner_name" jdbcType="VARCHAR" property="ownerName"/>
+            <result column="state" jdbcType="INTEGER" property="state"/>
+            <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+            <result column="description" jdbcType="LONGVARCHAR" property="description"/>
+        </association>
+    </resultMap>
+    <select id="selectItemDto" resultMap="ItemDtoMap">
+    select i.id, i.goods_id,i.start_date,i.end_date,i.survive_time,i.start_price,i.min_delta_price,i.current_price,i.seller_id,i.buyer_id,i.create_time,i.state,g.id,g.name,g.type_id,g.main_img,g.owner_id,g.owner_name,g.state,g.create_time,g.description
+    from item i
+    left join goods g
+    on i.goods_id = g.id
+    where i.id = #{id}
+  </select>
+    <select id="selectItemDtoByGoodsId" resultMap="ItemDtoMap">
+    select i.id, i.goods_id,i.start_date,i.end_date,i.survive_time,i.start_price,i.min_delta_price,i.current_price,i.seller_id,i.buyer_id,i.create_time,i.state,g.id,g.name,g.type_id,g.main_img,g.owner_id,g.owner_name,g.state,g.create_time,g.description
+    from item i
+    left join goods g
+    on i.goods_id = g.id
+    where i.goods_id = #{id}
+    and i.state = 2
+  </select>
+    <select id="selectItemDtoBuyer" resultMap="ItemDtoMap">
+    select i.id, i.goods_id,i.start_date,i.end_date,i.survive_time,i.start_price,i.min_delta_price,i.current_price,i.seller_id,i.buyer_id,i.create_time,i.state,g.id,g.name,g.type_id,g.main_img,g.owner_id,g.owner_name,g.state,g.create_time,g.description
+    from item i
+    left join goods g
+    on i.goods_id = g.id
+    where i.buyer_id = #{id}
+    and i.state = 3
+  </select>
+    <select id="selectItemDtoSeller" resultMap="ItemDtoMap">
+    select i.id, i.goods_id,i.start_date,i.end_date,i.survive_time,i.start_price,i.min_delta_price,i.current_price,i.seller_id,i.buyer_id,i.create_time,i.state,g.id,g.name,g.type_id,g.main_img,g.owner_id,g.owner_name,g.state,g.create_time,g.description
+    from item i
+    left join goods g
+    on i.goods_id = g.id
+    where i.seller_id = #{id}
+  </select>
 </mapper>

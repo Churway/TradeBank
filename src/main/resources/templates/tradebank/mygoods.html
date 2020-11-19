@@ -14,23 +14,25 @@
     </div>
     <div class="form-inline">
         <i class="fa fa-calendar-o m-2"></i>
-        <input id="startDate" placeholder="_开始日期" type="text" class="form-control w-25 flatpickr-input m-2" v-model="startDate">
-        <input id="endDate" placeholder="_截止日期" type="text" class="form-control w-25 flatpickr-input m-2" v-model="endDate">
+        <input id="startDate" placeholder="_开始日期" type="text" class="form-control w-25 flatpickr-input m-2"
+               v-model="startDate">
+        <input id="endDate" placeholder="_截止日期" type="text" class="form-control w-25 flatpickr-input m-2"
+               v-model="endDate">
         <i class="fa fa-search-plus m-2"></i>
         <button class="form-control m-2" @click="doSearch">查询</button>
+        <button class="form-control m-2" @click="doRefresh">刷新</button>
     </div>
     <div class="clearfix">
         <div class="card float-left m-4" style="width: 20%;height: 400px" v-for="g in goods">
             <img :src="preUrl+g.mainImg" class="card-img-top" alt="图片丢失">
             <div class="card-body h-75">
                 <h5 class="card-title">Name: {{g.name}}</h5>
-                <h5 class="card-title">CreateDate: {{g.createDate}}</h5>
+                <h5 class="card-title">CreateDate: {{g.createTime|timeFilter}}</h5>
                 <h5 class="card-title">State: {{g.state|stateFilter}}</h5>
-                <button class="btn btn-primary m-2" v-if="g.state == 1" @click="setAction(g.id)">设 置 拍 卖
-                </button>
-<!--                <button class="btn btn-primary m-2" v-if="g.state == 2" @click="updateAction(g.id)">修 改 拍 卖-->
-<!--                </button>-->
-                <button class="btn btn-primary m-2" @click="doDelete(g.id)">删 除</button>
+                <button class="btn btn-primary m-2" v-if="g.state == 1" @click="setAction(g.id)">设 置 拍 卖</button>
+                <!--                <button class="btn btn-primary m-2" v-if="g.state == 2" @click="updateAction(g.id)">修 改 拍 卖-->
+                <!--                </button>-->
+                <button class="btn btn-primary m-2" v-if="g.state == 1" @click="doDelete(g.id)">删 除</button>
             </div>
         </div>
     </div>
@@ -50,6 +52,7 @@
 <script th:src="@{/moon/js/vue.js}"></script>
 <script th:src="@{/layer/layer.js}"></script>
 <script th:src="@{/date/flatpickr.js}"></script>
+<script th:src="@{/moon/js/jquery.time.js}"></script>
 <script th:inline="javascript">
     //vue
     var vueApp = new Vue({
@@ -83,24 +86,26 @@
             doDelete: function (id) {
                 $.post("/churway/Goods/delete")
             },
-            setAction:function (id) {
-                $.post("/churway/Goods/setAction",{"id":id},function (data) {
-                    if (data == "fail"){
+            doRefresh: function () {
+                self.location.reload()
+            },
+            setAction: function (id) {
+                $.post("/churway/Goods/setAction", {"id": id}, function (data) {
+                    if (data == "fail") {
                         layer.msg("该商品已被设置拍卖或暂时无法设置拍卖!")
                         return
                     }
-                    console.log(location.host)
                     layer.open({
-                        type:2,
-                        title:"设 置 拍 卖",
-                        area:["80%","100%"],
-                        content:data
+                        type: 2,
+                        title: false,
+                        area: ["30%", "95%"],
+                        content: data,
+                        end: function () {
+                            vueApp.doRefresh()
+                        }
                     })
                 })
             },
-            updateAction:function (id) {
-
-            }
         },
         filters: {
             stateFilter: function (state) {
@@ -110,13 +115,16 @@
                         stateMsg = '未设置拍卖';
                         break;
                     case 2:
-                        stateMsg = '即将开始';
+                        stateMsg = '即将开始拍卖';
                         break;
                     case 3:
                         stateMsg = '正在拍卖';
                         break;
                 }
                 return stateMsg
+            },
+            timeFilter: function (time) {
+                return $.msfmt.todate(time, true, 8)
             }
         },
         created: function () {
@@ -125,7 +133,7 @@
     })
 
     $(".flatpickr-input").flatpickr({
-        locale: "zh",
+        //
     });
 
     function goPage(deltaInt) {

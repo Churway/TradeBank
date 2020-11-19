@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>Trade Bank</title>
-<link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}" />
-<link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}" />
+    <meta charset="UTF-8"/>
+    <title>Trade Bank</title>
+    <link rel="stylesheet" th:href="@{/moon/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/icon/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/date/flatpickr.css}">
 </head>
 <body class="bg-c">
-	<div class="container-fluid" id="app">
-		<div class="row">
-			<div class="col text-center rainbow text-white shadow">设 置 拍 卖</div>
-		</div>
-		<div>
-			<div class="mt-2">
-				<form id="setItem" method="post" action="">
-					<span>Name: </span><input class="form-control mt-2 mb-2 w-25" type="text" name="name">
-					<span>CreateDate: </span><input class="form-control mt-2 mb-2 w-25" type="text" name="createTime">
-					<button type="submit" class="m-2 btn btn-outline-dark form-control">Add</button>
-<!--					<button type="button" class="m-2 btn btn-outline-dark form-control" onclick="addItem()">Add</button>-->
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- js -->
-	<script th:src="@{/moon/js/jquery.js}"></script>
-	<script th:src="@{/moon/js/vue.js}"></script>
-	<script th:src="@{/layer/layer.js}"></script>
-	<script th:inline="javascript">
-		//
-		function addItem() {
+<div class="container-fluid" id="app">
+    <div class="row">
+        <div class="col text-center rainbow text-white shadow">设 置 拍 卖</div>
+    </div>
+    <div>
+        <div class="mt-2">
+            <form id="setItem" method="post" action="/churway/Item/add">
+                <input class="form-control" hidden type="text" name="goodsId" th:value="${goods.id}">
+                <span>名&nbsp;&nbsp;称: </span><input class="form-control mt-2 mb-2 border-0" type="text"
+                                                    th:value="${goods.name}" disabled>
+                <span>商品创建时间: </span><input class="form-control mt-2 mb-2 border-0" type="text"
+                                            th:value="${#dates.format(goods.createTime,'YYYY-MM-dd')}" disabled>
+                <span>起拍时间: </span><input id="startDate" class="form-control mt-2 mb-2 flatpickr-input" type="text" name="startDate" placeholder="Click Here">
+                <span>拍卖持续时间: </span>
+                <select name="surviveTime" class="form-control mt-2 mb-2">
+                    <option value="10">10分钟</option>
+                    <option value="20">20分钟</option>
+                    <option value="30">30分钟</option>
+                    <option value="60">1 小时</option>
+                </select>
+                <span>起 拍 价: </span><input class="form-control mt-2 mb-2" type="text" name="startPrice" >
+                <span>最低加价幅度: </span><input class="form-control mt-2 mb-2" type="text" name="minDeltaPrice">
+                <span>确认上架: </span><button type="submit" class="btn btn-outline-dark form-control mt-2 mb-2">Confirm</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- js -->
+<script th:src="@{/moon/js/jquery.js}"></script>
+<script th:src="@{/moon/js/vue.js}"></script>
+<script th:src="@{/layer/layer.js}"></script>
+<script th:src="@{/date/flatpickr.js}"></script>
+<script th:src="@{/moon/js/jquery.time.js}"></script>
+<script th:inline="javascript">
+    window.onload = function() {
+        //初始化日历插件
+        $('.flatpickr-input').flatpickr({
+            dateFormat:"Y-m-d H:i:S",
+            enableTime: true,
+            minDate:$.dtfmt.cur(true,8),
+            enableSeconds: false,
+            minuteIncrement: 1
+        })
 
-		}
-	</script>
+        $('.flatpickr-input').val($.dtfmt.cur(true,8));
+    }
+
+    function addItem() {
+
+    }
+</script>
 </body>
 </html>

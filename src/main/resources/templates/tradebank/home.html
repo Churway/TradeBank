@@ -44,8 +44,8 @@
 										onclick="openWork(this);">浏览拍品</a></li>
 									<li><a href="javascript:" class="has-arrow" work="igoods"
 										onclick="openWork(this);">我拍到的</a></li>
-									<li><a href="javascript:" class="has-arrow" work="ijoin"
-										onclick="openWork(this);">我参与的</a></li>
+<!--									<li><a href="javascript:" class="has-arrow" work="ijoin"
+										onclick="openWork(this);">我参与的</a></li>-->
 								</ul></li>
 						</ul>
 						<ul>
@@ -53,8 +53,8 @@
 								<ul>
 									<li><a href="javascript:" class="has-arrow" work="add"
 										   onclick="openWork(this);">添加商品</a></li>
-									<li><a href="javascript:" class="has-arrow" work="set"
-										   onclick="openWork(this);">设置拍卖</a></li>
+									<!--<li><a href="javascript:" class="has-arrow" work="set"
+										   onclick="openWork(this);">设置拍卖</a></li>-->
 									<li><a href="javascript:" class="has-arrow" work="mygoods"
 										   onclick="openWork(this);">我的商品</a></li>
 									<li><a href="javascript:" class="has-arrow" work="myroom"
@@ -92,7 +92,7 @@
 
 		//openWork
 		function openWork(obj) {
-			var iframe = "<iframe src='/openWork/" + $(obj).attr("work")
+			var iframe = "<iframe id='iframe' src='/openWork/" + $(obj).attr("work")
 					+ "' frameborder=0 width=100% height=100%></iframe>";
 			$("#work").html(iframe);
 		}
@@ -115,6 +115,7 @@
 			let url="http://120.55.53.172:7000/moon/SysUser/logout"
 			location.href=url
 		}
+
 	</script>
 </body>
 </html>

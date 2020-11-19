@@ -3,7 +3,9 @@ package com.churway.controller;
 import com.churway.entity.Goods;
 import com.churway.model.EsGoods;
 import com.churway.model.GoodsDto;
+import com.churway.model.ItemDto;
 import com.churway.service.GoodsService;
+import com.churway.service.ItemService;
 import com.churway.utils.BaseController;
 import com.github.pagehelper.PageInfo;
 import org.elasticsearch.index.query.BoolQueryBuilder;
@@ -17,6 +19,7 @@ import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.*;
 
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
@@ -39,6 +43,8 @@ public class GoodsController extends BaseController {
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
 
+    @Autowired
+    private ItemService itemService;
 
     @Value("${image.save.parent.path}")
     String parentPath;
@@ -83,6 +89,7 @@ public class GoodsController extends BaseController {
         Map<String,Object> map=new HashMap<String,Object>();
         map.put("list",esGoods);
         map.put("total",esGoodsPage.getTotalPages());
+        System.out.println(esGoods);
         return map;
     }
 
@@ -94,7 +101,11 @@ public class GoodsController extends BaseController {
 
     @RequestMapping("/goRoom")
     public String goRoom(Long id,HttpServletRequest request){
-        request.setAttribute("id",id);
+        Goods goods = goodsService.findById(id);
+        if(goods.getState() != 3)
+            return "tradebank/notstarterror";
+        ItemDto itemDto = itemService.findItemDtoByGoodsId(id);
+        request.setAttribute("itemDto", itemDto);
         return "tradebank/room";
     }
 
@@ -112,7 +123,19 @@ public class GoodsController extends BaseController {
         Goods goods = goodsService.findById(id);
         if(goods.getState() != 1)
             return "fail";
-        return "/setAction";
+        return "/churway/Goods/goSetAction?id="+id;
+    }
+
+    @RequestMapping({"/goSetAction"})
+    public String setAction(Long id,HttpServletRequest request) {
+        request.setAttribute("goods",goodsService.findById(id));
+        return "tradebank/setAction";
+    }
+
+    @ResponseBody
+    @RequestMapping("/findGoodsById")
+    public Goods findGoodsById(Long id){
+        return goodsService.findById(id);
     }
 
 
@@ -126,6 +149,12 @@ public class GoodsController extends BaseController {
             System.out.println("initing----->"+esGoods);
         });
         return "tradebank/success";
+    }
+
+    @Scheduled(fixedDelay = 60000)
+    private void intervalInitGoods(){
+        System.err.println(LocalDateTime.now() +"------------------------------>同步数据至elasticsearch");
+        init();
     }
 
 }

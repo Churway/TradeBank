@@ -69,4 +69,8 @@ public class GoodsService {
 	public Goods findById(Long id) {
 		return goodsMapper.selectByPrimaryKey(id);
 	}
+
+    public int update(Goods goods) {
+		return goodsMapper.updateByPrimaryKeySelective(goods);
+    }
 }

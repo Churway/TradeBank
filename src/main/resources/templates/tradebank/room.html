@@ -12,7 +12,7 @@
 			<div class="col text-center bg-warning text-white shadow">竞 拍</div>
 		</div>
 		<div class="mt-2">
-			{{goods.name}} | 起拍价:{{goods.startPrice}}元 | 当前价:{{currentPrice}}元 | 单次最低加价:{{goods.deltaPrice}}元 | 出售人:{{goods.ownerName}} | 开始时间:{{goods.startDate|dateFormat2}} | 截止时间:{{goods.endDate|dateFormat2}}
+			{{itemDto.goods.name}} | 起拍价:{{itemDto.startPrice}}元 | 当前价:{{currentPrice}}元 | 单次最低加价:{{itemDto.minDeltaPrice}}元 | 出售人:{{itemDto.goods.ownerName}} | 开始时间:{{itemDto.startDate|dateFormat2}} | 截止时间:{{itemDto.endDate|dateFormat2}}
 		</div>
 		<!--竞价消息框-->
 		<div class="mt-2 border" style="height:500px;overflow: auto" id="chatBox" >
@@ -20,7 +20,7 @@
 		</div>
 		<!--叫价操作-->
 		<div class="form-inline mt-2">
-			<input type="text" class="form-control form-control-sm" id="msg">
+			<input type="number" class="form-control form-control-sm" id="msg" step="1">
 			<button class="btn btn-sm btn-outline-danger ml-1" onclick="send()">叫价</button>
 		</div>
 	</div>
@@ -34,13 +34,13 @@
 		var vueApp = new Vue({
 			el:'#app',
 			data:{
-				goods:{},
+				itemDto:{},
 				msgs:[],
 				currentPrice:0,
 			},
 			created:function () {
-				this.goods = [[${goods}]]
-				this.currentPrice = [[${currentPrice}]]
+				this.itemDto = [[${itemDto}]]
+				this.currentPrice = this.itemDto.currentPrice
 			},
 			filters:{
 				dateFormat:function (val) {
@@ -51,15 +51,17 @@
 				}
 			}
 		})
-		var url = "ws://"+location.host+"/websocket"
+		var url = "ws://"+location.host+"/websocket"+"?id="+[[${itemDto.id}]]
 		var webSocket = new WebSocket(url)
 		webSocket.onclose=function () {
+			console.log("websocket关闭")
 			setTimeout(function () {
-				layer.msg("本场次的竞拍已结束")
-			},4000)
+				alert("本场次的竞拍已关闭")
+				window.parent.location.reload()
+			},2000)
 		}
 		function send(){
-			if(vueApp.goods.endDate < new Date()){
+			if(vueApp.itemDto.endDate < new Date()){
 				layer.msg("竞拍已结束!");
 				return;
 			}
@@ -76,8 +78,12 @@
 				layer.msg("不能低于当前价格!");
 				return;
 			}
-			if(vueApp.currentPrice + parseInt(vueApp.goods.deltaPrice) > parseInt(msg)){
-				layer.msg("加价幅度不能低于"+vueApp.goods.deltaPrice+"!");
+			if(vueApp.currentPrice + parseInt(vueApp.itemDto.minDeltaPrice) > parseInt(msg)){
+				layer.msg("加价幅度不能低于"+vueApp.itemDto.minDeltaPrice+"!");
+				return;
+			}
+			if(99999999 < parseInt(msg)){
+				layer.msg("请输入合适的价格!");
 				return;
 			}
 			webSocket.send(msg)

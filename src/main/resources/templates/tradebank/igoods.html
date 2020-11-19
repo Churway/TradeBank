@@ -8,16 +8,62 @@
 </head>
 <body class="bg-b">
 	<div class="container-fluid" id="app">
-		<div class="row">
-			<div class="col text-center azure text-white shadow">模 块 一</div>
+		<div class="row mb-2">
+			<div class="col text-center azure text-white shadow">我 的 订 单</div>
+		</div>
+		<div class="m-auto" style="width: 80%">
+			<table class="table table-striped table-dark" style="opacity: 0.8">
+				<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">商品名</th>
+					<th scope="col">图片</th>
+					<th scope="col">成交时间</th>
+					<th scope="col">成交价</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr v-for="item,index in goodsList">
+					<th scope="row">{{index}}</th>
+					<td>{{item.goods.name}}</td>
+					<td><img :src="preUrl+item.goods.mainImg" width="150px"  alt="图片丢失"></td>
+					<td>{{item.endDate|timeFilter}}</td>
+					<td>{{item.currentPrice}}</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+<!--			 分页-->
 		</div>
 	</div>
 	<!-- js -->
 	<script th:src="@{/moon/js/jquery.js}"></script>
 	<script th:src="@{/moon/js/vue.js}"></script>
 	<script th:src="@{/layer/layer.js}"></script>
+	<script th:src="@{/moon/js/jquery.time.js}"></script>
 	<script th:inline="javascript">
-		//
+		//vue
+		var vueApp =  new Vue({
+			el:'#app',
+			data:{
+				goodsList:[],
+				preUrl: [[${preUrl}]],
+				page:1,
+				size:100,
+			},
+			filters: {
+				timeFilter: function (time) {
+					return $.msfmt.todate(time, true, 8)
+				}
+			},
+			created:function () {
+				$.post("/churway/Item/listBuyer",{page:this.page,size:this.size},function (data) {
+					vueApp.goodsList = data.list
+					console.log(data)
+				})
+			}
+		})
 	</script>
 </body>
 </html>

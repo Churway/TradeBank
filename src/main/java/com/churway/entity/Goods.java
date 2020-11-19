@@ -25,7 +25,6 @@ public class Goods implements Serializable {
     @Column(name = "owner_name")
     private String ownerName;
 
-    //0:不可用 1:未设置竞拍 2:等待竞拍 3:正在竞拍
     private Integer state;
 
     @Column(name = "create_time")
@@ -159,20 +158,5 @@ public class Goods implements Serializable {
      */
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", typeId=" + typeId +
-                ", mainImg='" + mainImg + '\'' +
-                ", ownerId=" + ownerId +
-                ", ownerName='" + ownerName + '\'' +
-                ", state=" + state +
-                ", createTime=" + createTime +
-                ", description='" + description + '\'' +
-                '}';
     }
 }

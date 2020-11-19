@@ -18,6 +18,7 @@
 				<option v-for="t in types" :value="t.id">{{t.name}}</option>
 			</select>
 			<button class="form-control m-2" @click="doSearch">查询 </button>
+			<button class="form-control m-2" @click="doRefresh">刷新</button>
 		</div>
 		<div class="clearfix">
 			<div class="card float-left m-4" style="width: 20%;height: 450px" v-for="g in goods">
@@ -75,7 +76,10 @@
 				doSearch:function () {
 					this.pageNum = 0
 					this.showGoods()
-				}
+				},
+				doRefresh:function(){
+					self.location.reload()
+				},
 			},
 			filters:{
 				stateFilter:function (state) {
